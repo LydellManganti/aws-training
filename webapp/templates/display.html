@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block body %}
+{% for instance in instances %}
+<br/><br/>
+<label>Instance ID: {{instance.id}}</label>
+<br/>
+<label>Private IP: {{instance.private_ip_address}}</label>
+{% endfor %}
+{% endblock %}

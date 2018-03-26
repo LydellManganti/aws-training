@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block body %}
+<br/><br/>
+<h3>The following instances will be deleted:</h3>
+{% for instance in instances %}
+<br/><br/>
+<label>Instance ID: {{instance.id}}</label>
+<br/>
+<label>Private IP: {{instance.private_ip_address}}</label>
+{% endfor %}
+{% endblock %}

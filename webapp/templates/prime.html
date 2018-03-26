@@ -1,0 +1,10 @@
+{% extends "main.html" %}
+{% block body %}
+<br/>
+{% if is_prime_number %}
+<h2>{{number}} is a Prime Number!</h2>
+{% else %}
+<h2>{{number}} is NOT a Prime Number!</h2>
+<h3>It's divisible by {{divisible_by}}</h3>
+{% endif %}
+{% endblock %}

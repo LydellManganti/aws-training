@@ -1,0 +1,17 @@
+<!doctype html>
+<div>
+  <form method="POST">
+      <label>Number of Instances: </label>
+      <input type="number" name="number" value={{number}}>
+      <br/>
+      <br/>
+      <label>Name of Instances: </label>
+      <input name="name" label="Name of Instance" value={{name}}>
+      <br/>
+      <input type="submit" name="submit" value="Deploy" />
+      <input type="submit" name="submit" value="Display" />
+      <input type="submit" name="submit" value="Terminate" />
+      <input type="submit" name="submit" value="Is Prime Number" />
+  </form>
+  {% block body %}{% endblock %}
+</div>
