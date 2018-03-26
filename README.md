@@ -24,15 +24,27 @@ region = ap-southeast-2
 # How to run application locally
 1. Follow steps to setup local machine
 2. Change directory to the root folder of the application
-3. Run ./setup.sh
-4. Run source ./.venv/app/bin/activate
-5. Run ./run-app.sh
+3. Run 
+```
+./setup.sh
+```
+4. Run 
+```
+source ./.venv/app/bin/activate
+```
+5. Run 
+```
+./run-app.sh
+```
 6. Navigate to url http://localhost:5000
 
 # How to run Test suite locally
 1. Follow steps to setup local machine
 2. Change directory to the root folder of the application
-3. Run ./run-tests.sh
+3. Run 
+```
+./run-tests.sh
+```
 
 # How to build image locally
 1. Follow steps to setup local machine
