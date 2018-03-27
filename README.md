@@ -11,7 +11,7 @@ Please replace the access key and secret access key related to your aws account.
 [lydell-testing]
 aws_access_key_id = ABDEFGHJIKLMN
 aws_secret_access_key = AB1234Bdfd44rka99sdfjakfjwpfsfowDDD
-``` 
+```
 3. Add region settings in ~/.aws/config
 Add the "profile lydell-testing" profile because the application will look for this profile name.
 Please replace the region related to your aws account.
@@ -24,15 +24,15 @@ region = ap-southeast-2
 # How to run application locally
 1. Follow steps to setup local machine
 2. Change directory to the root folder of the application
-3. Run 
+3. Run
 ```
 ./setup.sh
 ```
-4. Run 
+4. Run
 ```
 source ./.venv/app/bin/activate
 ```
-5. Run 
+5. Run
 ```
 ./run-app.sh
 ```
@@ -41,7 +41,7 @@ source ./.venv/app/bin/activate
 # How to run Test suite locally
 1. Follow steps to setup local machine
 2. Change directory to the root folder of the application
-3. Run 
+3. Run
 ```
 ./run-tests.sh
 ```
@@ -62,6 +62,15 @@ docker run -i -p 80:80 -e AWS_ACCESS_KEY_ID=yourkey_aws_access_key -e AWS_SECRET
 ```
 3. Navigate to url http://localhost:80
 
+# How to run container from image pulled from docker hub
+1. Pull the image from docker hub
+```
+docker pull lydell/aws-training
+```
+2. Run the image
+```
+docker run -i -p 80:80 -e AWS_ACCESS_KEY_ID=yourkey_aws_access_key -e AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key lydell/aws-training
+```
 
 Please note difference of port numbers when running locally and running docker container
 ========================================================================================
