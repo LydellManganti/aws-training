@@ -9,3 +9,8 @@ def isNameValid(name):
     if name is None or name == '':
         return False
     return True
+
+def isApplicationValid(application):
+    if application is None or application == '':
+        return False
+    return True

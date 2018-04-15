@@ -1,5 +1,5 @@
 import unittest
-from webapp.plugins.validation_utils import isNumberValid, isNameValid
+from webapp.plugins.validation_utils import isNumberValid, isNameValid, isApplicationValid
 
 class TestValidationUtils(unittest.TestCase):
     def test_number_valid_false(self):
@@ -17,3 +17,11 @@ class TestValidationUtils(unittest.TestCase):
     def test_name_valid_true(self):
         name = 'Testing'
         self.assertTrue(isNameValid(name))
+
+    def test_application_valid_false(self):
+        application = None
+        self.assertFalse(isApplicationValid(application))
+
+    def test_application_valid_true(self):
+        application = 'Testing'
+        self.assertTrue(isApplicationValid(application))

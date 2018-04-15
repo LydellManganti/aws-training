@@ -10,6 +10,11 @@ class AWSUtils():
             Filters=[{'Name': 'tag:Name', 'Values': [name]}, {'Name': 'tag:Application', 'Values': ['Simple-aws']}])
         return self.instances
 
+    def retrieve_instances_by_application(self, type):
+        self.instances = self.ec2.instances.filter(
+            Filters=[{'Name': 'tag:Application', 'Values': [type]}])
+        return self.instances
+
     def create_instances(self, name, number):
         self.instances = self.ec2.create_instances(
             ImageId='ami-43874721',
@@ -36,6 +41,10 @@ class AWSUtils():
             ],
             )
         return self.instances
+
+    def stop_instances(self, application):
+        self.retrieve_instances_by_application(application)
+        return self.instances.stop()
 
     def terminate_instances(self, name):
         self.retrieve_instances(name)

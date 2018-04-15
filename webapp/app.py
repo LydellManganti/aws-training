@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 from plugins.aws_utils import AWSUtils
 from plugins.math_utils import isPrimeNumber
-from plugins.validation_utils import isNumberValid, isNameValid
+from plugins.validation_utils import isApplicationValid, isNumberValid, isNameValid
 
 app = Flask(__name__)
 awsutils = AWSUtils()
@@ -12,6 +12,7 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
+    application = request.form['application']
     name = request.form['name']
     number = request.form['number']
     submit = request.form['submit']
@@ -31,6 +32,13 @@ def my_form_post():
 
         awsutils.create_instances(name, number)
         return render_template('create.html', name=name, number=number)
+    elif submit == "Stop":
+        render = validateApplication(application, name, number)
+        if render is not None: return render
+
+        awsutils.stop_instances(application)
+        return render_template('stop.html', application=application, name=name, number=number)
+
     elif submit == "Terminate":
         render = validateName(name, number)
         if render is not None: return render
@@ -55,3 +63,8 @@ def validateName(name, number):
     isNameInputValid = isNameValid(name)
     if not isNameInputValid:
         return render_template('error_name.html', name=name, number=number)
+
+def validateApplication(application, name, number):
+    isApplicationInputValid = isApplicationValid(application)
+    if not isApplicationInputValid:
+        return render_template('error_application.html', name=name, number=number, application=application)
